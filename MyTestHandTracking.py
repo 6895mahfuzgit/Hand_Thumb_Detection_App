@@ -9,8 +9,8 @@ cap = cv2.VideoCapture(0)
 detector = htm.handDetector()
 while True:
       success, img = cap.read()
-      img = detector.findHands(img)
-      lmrList=detector.findPosition(img)
+      img = detector.findHands(img,draw=False)
+      lmrList=detector.findPosition(img,draw=False)
            
       if len(lmrList)!=0:
            if lmrList[4] :
@@ -24,7 +24,7 @@ while True:
       cv2.imshow("Image", img)
       cv2.waitKey(1)
            
-      if cv2.waitKey(1) & 0xff==ord('o'):
+      if cv2.waitKey(1) & 0xff==ord('c'):
           cap.release()
           cv2.destroyAllWindows()
           break;

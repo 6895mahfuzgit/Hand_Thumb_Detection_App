@@ -66,7 +66,7 @@ def main():
            cv2.imshow("Image", img)
            cv2.waitKey(1)
            
-           if cv2.waitKey(1) & 0xff==ord('o'):
+           if cv2.waitKey(1) & 0xff==ord('c'):
                cap.release()
                cv2.destroyAllWindows()
                break;
