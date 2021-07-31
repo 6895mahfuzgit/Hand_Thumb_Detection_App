@@ -40,7 +40,7 @@ class handDetector():
                  #print(id,cx,cy)
                  lmrList.append([id,cx,cy])
                  if draw:
-                     cv2.circle(img,(cx,cy), 5, (255,0,255),cv2.FILLED)
+                     cv2.circle(img,(cx,cy), 7, (255,0,0),cv2.FILLED)
        return lmrList      
        
 
@@ -67,7 +67,7 @@ def main():
            cv2.waitKey(1)
            
            if cv2.waitKey(1) & 0xff==ord('o'):
-              # webcam.release()
+               cap.release()
                cv2.destroyAllWindows()
                break;
 
