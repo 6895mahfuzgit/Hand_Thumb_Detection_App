@@ -57,7 +57,7 @@ while True:
              fingurs=detector.fingursUp()
              #print(fingurs)
              if fingurs[1] and fingurs[2]:
-                   
+                   px,py=0,0 
                    print('Selection Mode')
                    if y2<125:
                        if 250<x1<450:
@@ -101,8 +101,13 @@ while True:
          
          cv2.putText(img,f'FPS: {str(int(fps))}',(70,50),cv2.FONT_HERSHEY_PLAIN,3,(255,0,0),3)
          
+         imgGray=cv2.cvtColor(imgCanvas,cv2.COLOR_BGR2GRAY)
+         _,imgInv=cv2.threshold(imgGray,50,255,cv2.THRESH_BINARY_INV)
+         imgInv=cv2.cvtColor(imgInv,cv2.COLOR_GRAY2BGR)
+         img=cv2.bitwise_and(img,imgInv)
+         img=cv2.bitwise_or(img,imgCanvas)
          
-         img=cv2.addWeighted(img, 0.5, imgCanvas, 0.5, 0)
+         #img=cv2.addWeighted(img, 0.5, imgCanvas, 0.5, 0)
          cv2.imshow("Images",img)
          #cv2.imshow("Canvas Images",imgCanvas)
          cv2.waitKey(1)
